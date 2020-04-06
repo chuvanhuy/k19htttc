@@ -674,8 +674,10 @@
                                                                 </div>
                                                             </div>
                                                             <div class="widget-content-right mr-2">
+                                                                <a href="<?=base_url();?>admin/dang_nhap/thoat">
                                                                 <button class="btn-pill btn-shadow btn-shine btn btn-focus">Logout
                                                                 </button>
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>

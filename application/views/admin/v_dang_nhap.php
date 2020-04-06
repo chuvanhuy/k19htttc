@@ -56,14 +56,13 @@
                                 <span>Vui lòng đăng nhập hệ thống.</span></h4>
                             <div class="divider row"></div>
                             <div>
-                                <form class="">
+                                <form method="POST" action="<?=base_url();?>admin/dang_nhap/kiem_tra_dang_nhap">
                                     <div class="form-row">
                                         <div class="col-md-6">
-                                            <div class="position-relative form-group"><label for="exampleEmail" class="">Email</label><input name="email" id="exampleEmail" placeholder="Nhập Email..." type="email" class="form-control"></div>
+                                            <div class="position-relative form-group"><label for="exampleEmail" class="">Email</label><input name="txtEmail" id="exampleEmail" placeholder="Nhập Email..." type="email" class="form-control"></div>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="position-relative form-group"><label for="examplePassword" class="">Mật khẩu</label><input name="password" id="examplePassword" placeholder="Nhập mật khẩu..." type="password"
-                                                                                                                                                   class="form-control"></div>
+                                            <div class="position-relative form-group"><label for="examplePassword" class="">Mật khẩu</label><input name="txtPassword" id="examplePassword" placeholder="Nhập mật khẩu..." type="password">
                                         </div>
                                     </div>
                                     <div class="divider row"></div>
