@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Quản trị tin tức | K19HTTTC</title>
+    <title>Thêm mới tin tức | K19HTTTC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
     />
     <meta name="description" content="Example layout page for forum listing">
@@ -14,7 +14,7 @@
     <!-- Disable tap highlight on IE -->
     <meta name="msapplication-tap-highlight" content="no">
 
-<link href="../main.87c0748b313a1dda75f5.css" rel="stylesheet"></head>
+<link href="<?=base_url();?>main.87c0748b313a1dda75f5.css" rel="stylesheet"></head>
 <body>
 <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
     <div class="app-header header-shadow">
@@ -1281,7 +1281,6 @@
                                 </div>
                             </div>
                             <div class="page-title-actions">
-                                <a href="./quan_tri_tin_tuc/them_moi_tin_tuc">
                                 <button class="ladda-button mb-2 mr-2 btn btn-danger" data-style="expand-right">
                                     <span class="ladda-label">Thêm mới
                                     </span>
@@ -1289,93 +1288,33 @@
                                     </span>
                                     <div class="ladda-progress" style="width: 0px;"></div>
                                 </button>
-                                </a>
                             </div>    
                         </div>
                     </div>
                     <h4 class="d-flex flex-wrap justify-content-between align-items-center mb-3">
-                        <div>Quản trị tin tức</div>
+                        <div>Thêm mới tin tức</div>
                         <div class="col-12 col-md-3 p-0 mb-3">
                             <input type="text" class="form-control" placeholder="Tìm kiếm...">
                         </div>
                     </h4>
 
                     <div class="card mb-3">
-                        <div class="card-header pr-0 pl-0">
-                            <div class="row no-gutters align-items-center w-100">
-                                <div class="col font-weight-bold pl-3">Tin Sự kiện</div>
-                                <div class="d-none d-md-block col-6 text-muted">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col-3">Số lượt đọc</div>
-                                        <div class="col-9">Người cập nhật</div>
-                                    </div>
-                                </div>
+                        <form method="post" action="./thuc_hien_them_moi_tin_tuc">
+                        <!-- Thếm mới tin tức ở đây -->
+                            <div class="position-relative form-group">
+                                <label for="exampleAddress2" class="">Tiêu đề tin</label>
+                                <input name="txtTieuDe" type="text" class="form-control">
                             </div>
-                        </div>
-
-                        <!-- Nội dung tin tức -->
-                        <?php foreach ($tin_su_kien as $su_kien) {
-                        ;?>
-                        <div class="card-body py-3">        
-                            <div class="row no-gutters align-items-center">
-                                <div class="col"><a href="javascript:void(0)" class="text-big font-weight-semibold"><?=$su_kien->tieu_de;?></a></div>
-                                <div class="d-none d-md-block col-6">        
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col-3"><?=$su_kien->so_luot_doc;?></div>
-                                        <div class="media col-9 align-items-center">
-                                            <img style="width: 40px; height: auto;" src="../assets/images/<?=$su_kien->anh_minh_hoa;?>" alt="" class="d-block ui-w-30 rounded-circle">
-                                            <div class="media-body flex-truncate ml-2">
-                                                <a href="javascript:void(0)" class="d-block text-truncate"><?=$su_kien->tac_gia;?></a>
-                                                <div class="text-muted small text-truncate"><?=$su_kien->ngay_dang;?></div>
-                                            </div>
-                                        </div>
-                                    </div>        
-                                </div>
-                            </div>        
-                        </div>
-                        <?php 
-                        }
-                        ;?>
-                        <!-- Nội dung tin tức -->
-                    </div>
-
-                    <div class="card mb-3">
-                        <div class="card-header pr-0 pl-0">
-                            <div class="row no-gutters align-items-center w-100">
-                                <div class="col font-weight-bold pl-3">Tin Công nghệ</div>
-                                <div class="d-none d-md-block col-6 text-muted">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col-3">Số lượt đọc</div>
-                                        <div class="col-9">Người cập nhật</div>
-                                    </div>
-                                </div>
+                            <div class="position-relative form-group">
+                                <label for="exampleAddress2" class="">Mô tả</label>
+                                <input name="txtMoTa" type="text" class="form-control">
                             </div>
-                        </div>
-
-                        <!-- Nội dung tin tức -->
-                        <?php foreach ($tin_cong_nghe as $cong_nghe) {
-                        ;?>
-                        <div class="card-body py-3">        
-                            <div class="row no-gutters align-items-center">
-                                <div class="col"><a href="javascript:void(0)" class="text-big font-weight-semibold"><?=$cong_nghe->tieu_de;?></a></div>
-                                <div class="d-none d-md-block col-6">        
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col-3"><?=$cong_nghe->so_luot_doc;?></div>
-                                        <div class="media col-9 align-items-center">
-                                            <img style="width: 40px; height: auto;" src="../assets/images/<?=$cong_nghe->anh_minh_hoa;?>" alt="" class="d-block ui-w-30 rounded-circle">
-                                            <div class="media-body flex-truncate ml-2">
-                                                <a href="javascript:void(0)" class="d-block text-truncate"><?=$cong_nghe->tac_gia;?></a>
-                                                <div class="text-muted small text-truncate"><?=$cong_nghe->ngay_dang;?></div>
-                                            </div>
-                                        </div>
-                                    </div>        
-                                </div>
-                            </div>        
-                        </div>
-                        <?php 
-                        }
-                        ;?>
-                        <!-- Nội dung tin tức -->
+                            <div class="position-relative form-group">
+                                <label for="exampleAddress2" class="">Nội dung</label>
+                                <input name="txtNoiDung" type="text" class="form-control">
+                            </div>
+                            <button class="btn btn-primary">Submit</button>
+                        </form>
                     </div>
                 </div>
                 <div class="app-wrapper-footer">
@@ -2205,5 +2144,5 @@
         </div>
     </div>
 </div>
-<div class="app-drawer-overlay d-none animated fadeIn"></div><script type="text/javascript" src="../assets/scripts/main.87c0748b313a1dda75f5.js"></script></body>
+<div class="app-drawer-overlay d-none animated fadeIn"></div><script type="text/javascript" src="<?=base_url();?>assets/scripts/main.87c0748b313a1dda75f5.js"></script></body>
 </html>
