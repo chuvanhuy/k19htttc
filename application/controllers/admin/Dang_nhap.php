@@ -23,6 +23,7 @@ class Dang_nhap extends CI_Controller {
 	public function index()
 	{
 		// Hiển thị dữ liệu file View
+		$this->load->view('admin/v_header');
 		$this->load->view('admin/v_dang_nhap');
 	}
 
@@ -38,13 +39,41 @@ class Dang_nhap extends CI_Controller {
 			// Tạo ra 1 phiên làm việc cho người đăng nhập thành công
 			$this->session->set_userdata('s_email', $email);
 
-			// Chuyển người dùng vào trang Quản trị hệ thống
-			redirect(base_url().'admin/quan_tri_he_thong.html');
-		} else {
+
+			// Thông báo đăng nhập thành công
+			echo "
+				<script type='text/javascript'>
+					window.alert('Đăng nhập thành công!');
+				</script>
+			";
+
 			// Chuyển người dùng về trang Đăng nhập hệ thống
-			// echo "<script type='text/javascript'>alert('Đăng nhập không thành công!');</script>";
-			// echo "<script type='text/javascript'>window.location.href = base_url().'admin/dang_nhap.html'</script>";
-			redirect(base_url().'admin/dang_nhap.html');
+			echo "
+				<script type='text/javascript'>
+					window.location.href = '".base_url()."admin/quan_tri_he_thong.html'
+				</script>
+			";
+
+
+			// Chuyển người dùng vào trang Quản trị hệ thống
+			// redirect(base_url().'admin/quan_tri_he_thong.html');
+		} else {
+			// Thông báo đăng nhập không thành công
+			echo "
+				<script type='text/javascript'>
+					window.alert('Đăng nhập không thành công!');
+				</script>
+			";
+
+			// Chuyển người dùng về trang Đăng nhập hệ thống
+			echo "
+				<script type='text/javascript'>
+					window.location.href = '".base_url()."admin/dang_nhap.html'
+				</script>
+			";
+
+			// Chuyển người dùng vào trang Đăng nhập hệ thống
+			// redirect(base_url().'admin/quan_tri_he_thong.html');
 		}
 	}
 

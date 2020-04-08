@@ -26,6 +26,12 @@ class Quan_tri_he_thong extends CI_Controller {
 
 	public function index()
 	{
+		// Khai báo tiêu đề Website
+		$data['tieu_de'] = "Quản trị hệ thống | K19HTTTC";
+
+		// Hiển thị dữ liệu ra  view
+		$this->load->view('admin/v_header', $data);
+		$this->load->view('admin/v_menu');
 		$this->load->view('admin/v_quan_tri_he_thong');
 	}
 }

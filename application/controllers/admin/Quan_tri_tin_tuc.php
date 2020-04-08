@@ -14,6 +14,7 @@ class Quan_tri_tin_tuc extends CI_Controller {
 
 		// Kết nối đến MODEL có tên m_tin_tuc
 		$this->load->model('m_tin_tuc');
+		$this->load->model('m_loai_tin_tuc');
 
 		// Thư viện session
 		$this->load->library('session');
@@ -37,8 +38,16 @@ class Quan_tri_tin_tuc extends CI_Controller {
 
 	// Mục đích: Hiển thị form trống để nhập thông tin
 	public function them_moi_tin_tuc() {
-		// Mục đích: hiển thị ra form để các bạn nhập dữ liệu
-		$this->load->view('admin/v_tin_tuc_them_moi');
+		// Lấy danh sách các loại tin ở bảng tbl_loai_tin_tuc		
+		$data["loai_tin_tuc"] = $this->m_loai_tin_tuc->lay_danh_sach_loai_tin_tuc();
+
+		// Khai báo tiêu đề Website
+		$data['tieu_de'] = "Thêm mới tin tức | K19HTTTC";
+
+		// Hiển thị dữ liệu ra  view
+		$this->load->view('admin/v_header', $data);
+		$this->load->view('admin/v_menu');
+		$this->load->view('admin/v_tin_tuc_them_moi', $data);
 	}
 
 	// Mục đích: thêm mới tin tức vào CSDL
@@ -58,7 +67,15 @@ class Quan_tri_tin_tuc extends CI_Controller {
 		// Lấy dữ liệu từ MODEL
 		 $data['tin_tuc'] = $this->m_tin_tuc->lay_tin_tuc_theo_ID($id);
 
-		// Đẩy dữ liệu tin tức đó ra form để các bạn cập nhật
+		// Lấy danh sách các loại tin ở bảng tbl_loai_tin_tuc			
+		$data["loai_tin_tuc"] = $this->m_loai_tin_tuc->lay_danh_sach_loai_tin_tuc();
+
+		// Khai báo tiêu đề Website
+		$data['tieu_de'] = "Sửa tin tức | K19HTTTC";
+
+		// Hiển thị dữ liệu ra  view
+		$this->load->view('admin/v_header', $data);
+		$this->load->view('admin/v_menu');
 		$this->load->view('admin/v_tin_tuc_sua', $data);
 	}
 
